@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(function() {
+                btnResetOnClick()
+            });
+            function btnShowOnClick() {
+                let v1 = $("#label1").val()
+                let v2 = $("#label2").val()
+                $("#label3").text(calculateAnswer(v1,v2))
+            }
+            function btnResetOnClick() {
+                let rand1 = randANumber(1,100,2)
+                let rand2 = randANumber(1,100,2)
+                $("#label1").val(rand1)
+                $("#label1").text(rand1)
+                $("#label2").val(rand2)
+                $("#label2").text(rand2)
+
+                $("#label3").text("-")
+
+            }
+            function calculateAnswer(v1, v2) {
+                return Math.abs(v1-v2).toFixed(2)
+            }
+            function randANumber(min, max, dps) {
+                return ((Math.random() * (max - min) ) + min).toFixed(2);
+
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <span id='label1'></span>
+            <span id='label2'></span>
+        </div>
+        <div>
+            <div id='label3'>-</div>
+        </div>
+        <div>
+            <button id="btnShow" onclick="btnShowOnClick()">Show Answer</button>
+            <button id="btnReset" onclick="btnResetOnClick()">Reset</button>
+        </div>
+    </body>
+</html>
